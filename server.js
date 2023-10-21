@@ -1,5 +1,8 @@
 const app = require("./app");
 const connectDb = require("./config/dataBase");
+require("./routes/postRoute");
+
+
 const dotenv = require("dotenv");
 dotenv.config({ path: "config/config.env" });
 
