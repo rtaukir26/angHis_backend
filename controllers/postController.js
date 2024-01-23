@@ -145,7 +145,7 @@ exports.getSinglePost = async (req, res) => {
 exports.getLikePost = async (req, res) => {
   try {
     const postId = req.params.id;
-    const { userId } = req.body;
+    const userId = req.user._id;
 
     // Check if postId is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(postId)) {
@@ -227,7 +227,7 @@ exports.getLikePost = async (req, res) => {
 exports.getDislikePost = async (req, res) => {
   try {
     const postId = req.params.id;
-    const { userId } = req.body;
+    const userId = req.user._id;
 
     // Check if postId is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(postId)) {
@@ -307,7 +307,7 @@ exports.getDislikePost = async (req, res) => {
 exports.getHeartPost = async (req, res) => {
   try {
     const postId = req.params.id;
-    const { userId } = req.body;
+    const userId = req.user._id;
 
     // Check if postId is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(postId)) {
@@ -388,7 +388,6 @@ exports.writeCommets = async (req, res) => {
   try {
     const imgId = req.params.id;
     const { comments } = req.body;
-    console.log("comments", comments);
 
     // Check if postId is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(imgId)) {

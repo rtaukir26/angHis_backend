@@ -10,10 +10,11 @@ exports.requireSignIn = async (req, res, next) => {
     req.user = decode;
     next();
   } catch (error) {
-    console.log(error);
-    res
-      .status(401)
-      .send({ success: false, error, message: "Invalid access token" });
+    res.status(401).send({
+      success: false,
+      error,
+      message: "Invalid access token",
+    });
   }
 };
 
@@ -30,8 +31,10 @@ exports.isAdmin = async (req, res, next) => {
     }
   } catch (error) {
     console.log(error);
-    res
-      .status(401)
-      .send({ success: false, error, message: "Error in admin middleware" });
+    res.status(401).send({
+      success: false,
+      error: error.message,
+      message: "Error in admin middleware",
+    });
   }
 };
